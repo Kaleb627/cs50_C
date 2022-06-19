@@ -45,34 +45,31 @@ int main(void)
     }
 
 //finding first digit
-    long first = cc;
-    long second = cc;
+    long first2 = cc;
 
-    while (first >= 10 )
+    while (first2 >= 100 )
     {
-        first = first / 10;
+        first2 = first2 / 10;
     }
 
-//finding second digit
-    second = (second % 10) / 10;
-
 //checking type of card using card length and first digits
-    if (cc_length == 15 && first == 3)
+    if (cc_length == 15 && (first2 == 34 || first2 == 37))
     {
-        if (second == 4 || second == 7)
-        {
             printf("AMEX\n");
-        }
     }
     else if (cc_length == 16 || cc_length == 13)
     {
-        if (first == 5 && second >= 1 && second <= 5)
+        if (first2 >= 51 && first2 <= 55)
         {
             printf("MASTERCARD\n");
         }
-        else if (first == 4)
+        else if (first2 / 10 == 4)
         {
             printf("VISA\n");
+        }
+        else
+        {
+            printf("INVALID\n");
         }
     }
     else
